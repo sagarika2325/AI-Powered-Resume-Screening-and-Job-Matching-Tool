@@ -13,7 +13,13 @@ import ast  # ✅ Add here (NOT inside any if/elif block)
 st.set_page_config(page_title="AI Resume Matcher", layout="wide")
 
 # ✅ Load spaCy NLP model
-nlp = spacy.load("en_core_web_sm")
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    import os
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
 
 # ✅ Function to load datasets
 @st.cache_data
