@@ -6,6 +6,7 @@ import spacy
 import matplotlib.pyplot as plt
 import seaborn as sns
 import re
+import os
 import ast  # ✅ Add here (NOT inside any if/elif block)
 
 
@@ -24,9 +25,10 @@ except:
 # ✅ Function to load datasets
 @st.cache_data
 def load_data():
-    resumes = pd.read_csv("../data/resumes_dataset_powerful.csv")
-    jobs = pd.read_csv("../data/job_descriptions_powerful.csv")
-    matches = pd.read_csv("../output/match_results.csv")
+    base_dir = os.path.dirname(os.path.dirname(__file__))  # Navigate to project root
+    resumes = pd.read_csv(os.path.join(base_dir, "data", "resumes_dataset_powerful.csv"))
+    jobs = pd.read_csv(os.path.join(base_dir, "data", "job_descriptions_powerful.csv"))
+    matches = pd.read_csv(os.path.join(base_dir, "output", "match_results.csv"))
     return resumes, jobs, matches
 
 resumes, jobs, matches = load_data()
