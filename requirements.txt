@@ -1,1 +1,9 @@
-pip install pandas streamlit scikit-learn openai matplotlib
+streamlit
+pandas
+scikit-learn
+matplotlib
+seaborn
+spacy
+python-docx
+PyMuPDF
+
